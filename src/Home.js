@@ -1,43 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Navbar from './Navbar';
+import ActivityList from './ActivityList';
+import AddActivity from './AddActivity';
 
-const Home = () => {
-    const [name, setName] = useState('Álvaro');
-    const [age, setAge] = useState(27);
- 
-    const handleClick = () => {
-        setName("Álvaro Mota");
-        setAge(28);
-        setActivities([
-                {activity: 'Andar', streak: 6, last_update: 'xyz', acc: 456, id: 1},
-                {activity: 'Correr', streak: 20, last_update: 'xyz', acc: 456, id: 2},
-                {activity: 'Nadar', streak: 69, last_update: 'xyz', acc: 456, id: 3},
-                {activity: 'Estudar', streak: 35, last_update: 'xyz', acc: 456, id: 4},
-        ])
+
+function Home() {
+    const [activities, setActivities] = useState(null);
+    const [isPending, setIsPending] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        setTimeout(() => {
+            fetch('http://127.0.0.1:8080/userActivities/c68fd157-edae-4076-ac3c-3206dcde4e47')
+                .then(res => res.json()) // Converter a resposta para JSON
+                .then(data => {
+                    console.log(data.activities); // Exibir o corpo da resposta
+                    setIsPending(false);
+                    //setError(null);
+                    setActivities(data.activities);
+                })
+                .catch(err => {
+                    setIsPending(false);
+                    setError(err.message);
+                })
+        }, 1000);
+
+    }, [])
+
+    const handleDelete = (uuid) => {
+        const new_activities = activities.filter((activity) => (activity.uuid != uuid));
+        setActivities(new_activities);
     }
-	const [activities, setActivities] = useState([
-        {activity: 'Activity1', streak: 6, last_update: 'xyz', acc: 456, id: 1},
-        {activity: 'Activity2', streak: 6, last_update: 'xyz', acc: 456, id: 2},
-        {activity: 'Activity3', streak: 6, last_update: 'xyz', acc: 456, id: 3},
-        {activity: 'Activity4', streak: 6, last_update: 'xyz', acc: 456, id: 4},
-    ])
-  
 
     return (
-        <div className="homepage">
-            <h1>Homepage</h1>
-            <p>{ name }</p>
-            <p>{ age }</p>
-            <button onClick={handleClick}>Click me</button>
-            <div>
-                {activities.map((activity) => (
-                    <div className="activity" key={activity.id}>
-                        <h2>{activity.activity}, streak: {activity.streak}</h2>
-                        <h5>last_update: {activity.last_update} acc: {activity.acc}</h5>
-                    </div>
-                ))}
-            </div>
+        <div className="Home">
+            <AddActivity />
+            {error && <h2>Error: {error}</h2>}
+            {isPending && <h2>Loading...</h2>}
+            {activities && <ActivityList activities={activities} handleDelete={handleDelete}/>}
         </div>
-    )
+    );
 }
 
 export default Home;

@@ -3,10 +3,10 @@ const ActivityList = ({activities, handleDelete}) => {
     return (
         <div>
             {activities.map((activity) => (
-                <div className="activity" key={activity.id}>
-                    <h2>{activity.activity}, streak: {activity.streak}</h2>
-                    <h5>last_update: {activity.last_update} acc: {activity.acc}</h5>
-                    <button onClick={() => (handleDelete(activity.id))}>Delete</button>
+                <div className="activity" key={activity.uuid}>
+                    <h2>{activity.name}, accumulative: {activity.accumulative} streak: {activity.streak}</h2>
+                    <h5>last_update: {activity.last_update} uuid: {activity.uuid}</h5>
+                    <button onClick={() => (handleDelete(activity.uuid))}>Delete</button>
                 </div>
             ))}
         </div>

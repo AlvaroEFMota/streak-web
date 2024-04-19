@@ -1,6 +1,4 @@
-// function Navbar() {
-//     return (<><h1>Streak App</h1></>);
-// }
+//import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -8,8 +6,8 @@ const Navbar = () => {
         <h1>Streak App</h1>
         <div className="links">
             <a href="/">Home</a>
-            <a href="/create">New Activity</a>
             <a href="/About">About</a>
+            <a href="/login">Login</a>
         </div>
 
     </nav>

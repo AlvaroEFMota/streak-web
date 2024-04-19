@@ -1,29 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from './Navbar';
 import Home from './Home';
-import ActivityList from './ActivityList';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
 function App() {
 
-	const [activities, setActivities] = useState([
-        {activity: 'Activity1', streak: 6, last_update: 'xyz', acc: 456, id: 1},
-        {activity: 'Activity2', streak: 6, last_update: 'xyz', acc: 456, id: 2},
-        {activity: 'Activity3', streak: 6, last_update: 'xyz', acc: 456, id: 3},
-        {activity: 'Activity4', streak: 6, last_update: 'xyz', acc: 456, id: 4},
-    ])
-    
-    const handleDelete = (id) => {
-        const new_activities = activities.filter((activity) => (activity.id !== id));
-        setActivities(new_activities);
-    }
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home />,
+            errorElement: <h1>Error</h1>,
+        },
+        {
+            path: "/about",
+            element: <h1>About Page</h1>,
+        }
+    ]);
 
-  return (
-      <div className="App">
-          <Navbar />
-          <ActivityList activities={activities} handleDelete={handleDelete}/>
-      </div>
-  );
+    return (
+        <div className="App">
+            <Navbar />
+            <RouterProvider router={router} />
+        </div>
+    );
 }
 
 export default App;
