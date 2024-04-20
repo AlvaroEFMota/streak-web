@@ -1,15 +1,14 @@
-//import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
     <nav className="navbar">
         <h1>Streak App</h1>
         <div className="links">
-            <a href="/">Home</a>
-            <a href="/About">About</a>
-            <a href="/login">Login</a>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/login">Login</Link>
         </div>
-
     </nav>
     );
 }

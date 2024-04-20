@@ -14,13 +14,12 @@ function App() {
         },
         {
             path: "/about",
-            element: <h1>About Page</h1>,
+            element: <Navbar />,
         }
     ]);
 
     return (
         <div className="App">
-            <Navbar />
             <RouterProvider router={router} />
         </div>
     );

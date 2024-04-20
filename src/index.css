@@ -11,9 +11,9 @@
 	padding: 20px;
 	display: flex;
 	align-items: center;
-	max-width: 600px;
-	margin: 0 auto;
-	border-bottom: 1px solid #f2f2f2;
+	max-width: 1500px;
+	margin: 0 4%;
+	border-bottom: 1px solid #e2e2e2;
 }
 
 .navbar h1 {
@@ -36,11 +36,37 @@
 
 .content {
 	max-width: 600px;
-	margin: 40px auto;
+	margin: auto;
 	padding: 20px;
 }
 
 .homepage {
-	margin: auto;
-	max-width: 400px;
+	margin-left: 10%;
+	max-width: 700px;
+}
+
+.activity {
+	margin-top: 30px;
+	border-bottom: 1px solid #e0e0e0;
+    display: flex;
+	padding-bottom: 10px;
+}
+
+.add_activity {
+    max-width: 600px;
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+.add_activity label{
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.btn {
+    max-width:100px;
+    max-height: 30px;
+    margin-left: auto;
+    background-color: #f06060;
 }

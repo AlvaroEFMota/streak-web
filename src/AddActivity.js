@@ -4,9 +4,9 @@ const AddActivity = () => {
 	return (
 		<form className="add_activity">
 			<label>
-				<h2>Add Activity:</h2>
-				<input type="text" value="asdf" />
+				Add Activity:
 			</label>
+            <input type="text" readOnly value="asdf" />
 		</form>
 	);
 }

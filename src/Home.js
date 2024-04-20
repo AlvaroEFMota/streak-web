@@ -33,11 +33,14 @@ function Home() {
     }
 
     return (
-        <div className="Home">
-            <AddActivity />
-            {error && <h2>Error: {error}</h2>}
-            {isPending && <h2>Loading...</h2>}
-            {activities && <ActivityList activities={activities} handleDelete={handleDelete}/>}
+        <div className="home">
+            <Navbar />
+            <div className="homepage">
+                <AddActivity />
+                {error && <h2>Error: {error}</h2>}
+                {isPending && <h2>Loading...</h2>}
+                {activities && <ActivityList activities={activities} handleDelete={handleDelete}/>}
+            </div>
         </div>
     );
 }
