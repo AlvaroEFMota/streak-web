@@ -29,8 +29,14 @@ function Home() {
     }, [])
 
     const handleDelete = (uuid) => {
-        const new_activities = activities.filter((activity) => (activity.uuid != uuid));
-        setActivities(new_activities);
+        fetch(('http://127.0.0.1:8080/activity/'+uuid), { method: 'DELETE' })
+            .then((response) => {
+                if (response.ok) {
+                    const new_activities = activities.filter((activity) => (activity.uuid !== uuid));
+                    setActivities(new_activities);
+                }
+                return response.json();
+            });
     }
 
     return (
@@ -40,7 +46,7 @@ function Home() {
                 <AddActivity user_id={user_id} />
                 {error && <h2>Error: {error}</h2>}
                 {isPending && <h2>Loading...</h2>}
-                {activities && <ActivityList activities={activities} handleDelete={handleDelete}/>}
+                {activities && <ActivityList activities={activities} handleDelete={handleDelete} />}
             </div>
         </div>
     );

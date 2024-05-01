@@ -1,4 +1,27 @@
+import { useState } from 'react';
+
 const ActivityList = ({activities, handleDelete}) => {
+
+    const [inputTimes, setInputTimes] = useState({});
+
+    const handleSubmitTime = (uuid) => {
+        const timeValue = parseInt(inputTimes[uuid], 10)
+        fetch('http://127.0.0.1:8080/activity', {
+            method: 'PUT',
+            headers: {
+                //'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: uuid,
+                duration: timeValue,
+            })
+        })
+    }
+
+    const handleChangeInputTime = (uuid, value) => {
+        setInputTimes({...inputTimes, [uuid]: value})
+    }
 
     return (
         <div>
@@ -8,7 +31,14 @@ const ActivityList = ({activities, handleDelete}) => {
                     <h2>{activity.name}, accumulative: {activity.accumulative} streak: {activity.streak}</h2>
                     <h5>last_update: {activity.last_update} uuid: {activity.uuid}</h5>
                     </div>
-                    <button className="btn" onClick={() => (handleDelete(activity.uuid))}>Delete</button>
+                    <div>
+                        <form onSubmit={(e) => handleSubmitTime(activity.uuid)} >
+                            <input type="text"
+                                required value={inputTimes[activity.uuid] || ''}
+                                onChange={(e) => handleChangeInputTime(activity.uuid, e.target.value)}/>
+                        </form>
+                        <button className="btn" onClick={() => (handleDelete(activity.uuid))}>Delete</button>
+                    </div>
                 </div>
             ))}
         </div>

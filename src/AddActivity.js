@@ -4,8 +4,7 @@ const AddActivity = ({user_id}) => {
     const [ inputActivity, setInputActivity ] = useState("");
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        //put request
+        //e.preventDefault();
         console.log(inputActivity);
         if(inputActivity) {
             fetch('http://127.0.0.1:8080/activity', {
@@ -31,7 +30,7 @@ const AddActivity = ({user_id}) => {
             <input type="text"
                 required value={inputActivity}
                 onChange={(e) => setInputActivity(e.target.value)}/>
-            {inputActivity}
+            <button type="submit">Create</button>
 		</form>
 	);
 }
