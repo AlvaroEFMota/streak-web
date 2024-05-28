@@ -8,13 +8,25 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log("useEffect token content:", token);
         if(token) {
             setIsAuthenticated(true);
         }
-    })
+        setIsLoading(false);
+    }, [])
+
+    const handleLogin = (token) => {
+        localStorage.setItem('token', token);
+        setIsAuthenticated(true);
+    }
+
+    if (isLoading) {
+        return <div> Loading... </div>;
+    }
 
     const router = createBrowserRouter([
         {
@@ -33,7 +45,7 @@ function App() {
         },
         {
             path: "/login",
-            element: <Login />,
+            element: <Login onLogin={handleLogin}/>,
         }
     ]);
 
