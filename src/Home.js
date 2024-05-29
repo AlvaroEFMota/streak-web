@@ -11,8 +11,14 @@ function Home() {
     const user_id = "c68fd157-edae-4076-ac3c-3206dcde4e47"
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
         setTimeout(() => {
-            fetch('http://127.0.0.1:8080/userActivities/'+ user_id)
+            fetch('http://127.0.0.1:8080/api/activities/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': token,
+                }
+            })
                 .then(res => res.json()) // Converter a resposta para JSON
                 .then(data => {
                     console.log(data.activities); // Exibir o corpo da resposta
@@ -29,7 +35,13 @@ function Home() {
     }, [])
 
     const handleDelete = (uuid) => {
-        fetch(('http://127.0.0.1:8080/activity/'+uuid), { method: 'DELETE' })
+        const token = localStorage.getItem('token');
+        fetch(('http://127.0.0.1:8080/api/activity/'+uuid), {
+            method: 'DELETE',
+            headers: {
+                'Authorization': token,
+            }
+        })
             .then((response) => {
                 if (response.ok) {
                     const new_activities = activities.filter((activity) => (activity.uuid !== uuid));
@@ -41,9 +53,8 @@ function Home() {
 
     return (
         <div className="home">
-            <Navbar />
             <div className="homepage">
-                <AddActivity user_id={user_id} />
+                <AddActivity />
                 {error && <h2>Error: {error}</h2>}
                 {isPending && <h2>Loading...</h2>}
                 {activities && <ActivityList activities={activities} handleDelete={handleDelete} />}

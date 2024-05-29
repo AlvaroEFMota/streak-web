@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
+import About from './About';
 import ProtectedRoute from './ProtectedRoute';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
 function App() {
@@ -23,35 +24,34 @@ function App() {
         localStorage.setItem('token', token);
         setIsAuthenticated(true);
     }
+    
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        setIsAuthenticated(false);
+        setIsLoading(false);
+    }
 
     if (isLoading) {
         return <div> Loading... </div>;
     }
 
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: (
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                    <Home />
-                </ProtectedRoute>
-            ),
-
-            errorElement: <h1>Error</h1>,
-        },
-        {
-            path: "/about",
-            element: <Navbar />,
-        },
-        {
-            path: "/login",
-            element: <Login onLogin={handleLogin}/>,
-        }
-    ]);
-
     return (
         <div className="App">
-            <RouterProvider router={router} />
+            <BrowserRouter>
+                <Navbar onLogout={handleLogout} />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <ProtectedRoute isAuthenticated={isAuthenticated}>
+                                <Home />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }

@@ -7,6 +7,20 @@
 	color: #333;
 }
 
+.p10 {
+    padding: 10px;
+}
+
+.top_m15{
+    margin-top: 15px;
+}
+.top_m10{
+    margin-top: 10px;
+}
+.top_m5{
+    margin-top: 5px;
+}
+
 .navbar {
 	padding: 20px;
 	display: flex;
@@ -69,4 +83,12 @@
     max-height: 30px;
     margin-left: auto;
     background-color: #f06060;
+}
+
+.loginContainer {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({onLogout}) => {
     return (
     <nav className="navbar">
         <h1>Streak App</h1>
@@ -8,6 +8,7 @@ const Navbar = () => {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/login">Login</Link>
+            <button onClick={onLogout}>Logout</button>
         </div>
     </nav>
     );

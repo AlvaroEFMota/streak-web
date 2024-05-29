@@ -1,20 +1,21 @@
 import { useState } from 'react';
 
-const AddActivity = ({user_id}) => {
+const AddActivity = () => {
     const [ inputActivity, setInputActivity ] = useState("");
 
     const handleSubmit = (e) => {
         //e.preventDefault();
         console.log(inputActivity);
+        const token = localStorage.getItem('token');
         if(inputActivity) {
-            fetch('http://127.0.0.1:8080/activity', {
+            fetch('http://127.0.0.1:8080/api/activity', {
                 method: 'POST',
                 headers: {
-                    //'Accept': 'application/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'Authorization': token,
                 },
                 body: JSON.stringify({
-                    user_id: user_id,
                     name: inputActivity,
                 })
             })

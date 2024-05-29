@@ -5,12 +5,15 @@ const ActivityList = ({activities, handleDelete}) => {
     const [inputTimes, setInputTimes] = useState({});
 
     const handleSubmitTime = (uuid) => {
+        const token = localStorage.getItem('token');
         const timeValue = parseInt(inputTimes[uuid], 10)
-        fetch('http://127.0.0.1:8080/activity', {
+        console.log(timeValue);
+        fetch('http://127.0.0.1:8080/api/activity', {
             method: 'PUT',
             headers: {
-                //'Accept': 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
+                'Authorization': token,
             },
             body: JSON.stringify({
                 id: uuid,
@@ -32,7 +35,7 @@ const ActivityList = ({activities, handleDelete}) => {
                     <h5>last_update: {activity.last_update} uuid: {activity.uuid}</h5>
                     </div>
                     <div>
-                        <form onSubmit={(e) => handleSubmitTime(activity.uuid)} >
+                        <form onSubmit={(e) => {handleSubmitTime(activity.uuid)}} >
                             <input type="text"
                                 required value={inputTimes[activity.uuid] || ''}
                                 onChange={(e) => handleChangeInputTime(activity.uuid, e.target.value)}/>

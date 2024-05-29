@@ -44,18 +44,23 @@ function Login({ onLogin}) {
 
     return (
         <div>
-            <Navbar />
             <form className="loginContainer" onSubmit={handleSubmit}>
-                <div>Login page</div>
-                <div className="inputContainer">
-                    <label htmlFor="email">Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} name="email"/>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '10px' }}>
+                    <h2>Login page</h2>
                 </div>
                 <div className="inputContainer">
-                    <label htmlFor="password">password</label>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} name="password"/>
+                    <div>
+                        <label htmlFor="email"><h4>Email</h4></label>
+                    </div>
+                    <input className={'top_m10'} value={email} onChange={(e) => setEmail(e.target.value)} name="email"/>
                 </div>
-                <input className={'inputButton'} type="submit" value={'Log in'} />
+                <div className="inputContainer">
+                    <div>
+                        <label htmlFor="password"><h4>password</h4></label>
+                    </div>
+                    <input className={'top_m10'} value={password} onChange={(e) => setPassword(e.target.value)} name="password"/>
+                </div>
+                <input className={'inputButton top_m15'} type="submit" value={'Log in'} />
             </form>
         </div>
     );
