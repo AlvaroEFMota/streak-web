@@ -6,8 +6,9 @@ const Signin = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-        fetch('http://127.0.0.1:8080/user', {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+         fetch('http://127.0.0.1:8080/user', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
