@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
 import About from './About';
+import Signin from './Signin';
 import ProtectedRoute from './ProtectedRoute';
 import { createBrowserRouter, RouterProvider, BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -50,6 +51,7 @@ function App() {
                     />
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login onLogin={handleLogin} />} />
+                    <Route path="/signin" element={<Signin />} />
                 </Routes>
             </BrowserRouter>
         </div>

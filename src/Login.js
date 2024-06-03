@@ -10,6 +10,10 @@ function Login({ onLogin}) {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    const handleSignIn = (event) => {
+        navigate("/signin");
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("initialized");
@@ -61,6 +65,7 @@ function Login({ onLogin}) {
                     <input className={'top_m10'} value={password} onChange={(e) => setPassword(e.target.value)} name="password"/>
                 </div>
                 <input className={'inputButton top_m15'} type="submit" value={'Log in'} />
+                <input className={'inputButton top_m15'} type="button" value={'Sign in'} onClick={(e) => handleSignIn(e)}/>
             </form>
         </div>
     );
