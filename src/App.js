@@ -6,11 +6,19 @@ import About from './About';
 import Signin from './Signin';
 import ProtectedRoute from './ProtectedRoute';
 import { createBrowserRouter, RouterProvider, BrowserRouter, Routes, Route} from 'react-router-dom';
-
+import { useDispatch} from "react-redux";
+import { setApiUrl } from "./state/environment/environmentSlice";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const dispatch = useDispatch();
+
+    const api_url = process.env.API_URL;
+    console.log("API_URL", api_url);
+    if (api_url) {
+        dispatch(setApiUrl(api_url));
+    }
 
     useEffect(() => {
         const token = localStorage.getItem('token');
