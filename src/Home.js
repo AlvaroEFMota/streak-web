@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
-import Navbar from './Navbar';
 import ActivityList from './ActivityList';
 import AddActivity from './AddActivity';
+import { useSelector } from "react-redux";
 
 
 function Home() {
+    const api_url =  useSelector((state) => state.api_url);
     const [activities, setActivities] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
-    const user_id = "c68fd157-edae-4076-ac3c-3206dcde4e47"
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         setTimeout(() => {
-            fetch('http://127.0.0.1:8080/api/activities/', {
+            fetch(api_url + '/api/activities/', {
                 method: 'GET',
                 headers: {
                     'Authorization': token,
@@ -36,7 +36,7 @@ function Home() {
 
     const handleDelete = (uuid) => {
         const token = localStorage.getItem('token');
-        fetch(('http://127.0.0.1:8080/api/activity/'+uuid), {
+        fetch((api_url + '/api/activity/' + uuid), {
             method: 'DELETE',
             headers: {
                 'Authorization': token,

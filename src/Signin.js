@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 const Signin = () => {
+    const api_url = useSelector((state) => state.api_url);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-         fetch('http://127.0.0.1:8080/user', {
+         fetch(api_url + '/user', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

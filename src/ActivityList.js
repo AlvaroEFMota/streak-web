@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const ActivityList = ({activities, handleDelete}) => {
 
+    const api_url = useSelector((state) => state.api_url);
     const [inputTimes, setInputTimes] = useState({});
 
     const handleSubmitTime = (uuid) => {
         const token = localStorage.getItem('token');
         const timeValue = parseInt(inputTimes[uuid], 10)
         console.log(timeValue);
-        fetch('http://127.0.0.1:8080/api/activity', {
+        fetch(api_url + '/api/activity', {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',

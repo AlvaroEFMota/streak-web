@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const AddActivity = () => {
+    const api_url = useSelector((state) => state.api_url);
     const [ inputActivity, setInputActivity ] = useState("");
 
     const handleSubmit = (e) => {
@@ -8,7 +10,7 @@ const AddActivity = () => {
         console.log(inputActivity);
         const token = localStorage.getItem('token');
         if(inputActivity) {
-            fetch('http://127.0.0.1:8080/api/activity', {
+            fetch(api_url + '/api/activity', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

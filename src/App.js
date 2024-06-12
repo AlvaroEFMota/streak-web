@@ -15,7 +15,6 @@ function App() {
     const dispatch = useDispatch();
 
     const api_url = process.env.API_URL;
-    console.log("API_URL", api_url);
     if (api_url) {
         dispatch(setApiUrl(api_url));
     }
