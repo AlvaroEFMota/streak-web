@@ -43,8 +43,8 @@ jobs:
         context: .
         push: true
         tags: alvaroefmota/streak-web:0.1
-      build-args: |
-        API_URL=${{ vars.API_URL }}
+        build-args: |
+          API_URL=${{ vars.API_URL }}
 
   deploy:
     needs: build
