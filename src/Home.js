@@ -32,7 +32,7 @@ function Home() {
                 })
         }, 1000);
 
-    }, [])
+    }, [api_url])
 
     const handleDelete = (uuid) => {
         const token = localStorage.getItem('token');
