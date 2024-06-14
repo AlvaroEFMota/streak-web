@@ -1,3 +1,4 @@
+![build](https://github.com/AlvaroEFMota/streak-web//actions/workflows/node.yml/badge.svg)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
