@@ -1,5 +1,5 @@
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
-const Dotenv = require('dotenv-webpack');
+//const Dotenv = require('dotenv-webpack');
 
 module.exports = function override(config, env) {
   // Adiciona os fallbacks necessários
@@ -22,9 +22,9 @@ module.exports = function override(config, env) {
   config.plugins.push(new NodePolyfillPlugin());
 
   // Adiciona o plugin dotenv-webpack
-  config.plugins.push(new Dotenv({
-    systemvars: true
-  }));
+  //config.plugins.push(new Dotenv({
+    //systemvars: true
+  //}));
 
   return config;
 };
