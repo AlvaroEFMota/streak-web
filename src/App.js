@@ -15,7 +15,7 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
 
-    const api_url = process.env.API_URL;
+    const api_url = process.env.REACT_APP_API_URL;
     if (api_url) {
         dispatch(setApiUrl(api_url));
     }

@@ -8,9 +8,7 @@ COPY . .
 ARG API_URL
 
 # Definindo uma variável de ambiente
-ENV API_URL=${API_URL}
-
-#ENV API_URL=http://api:8080
+ENV REACT_APP_API_URL=${API_URL}
 
 RUN npm install
 
