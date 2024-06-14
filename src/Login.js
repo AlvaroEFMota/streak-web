@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
+
 function Login({ onLogin}) {
     const api_url = useSelector((state) => state.api_url);
     const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ function Login({ onLogin}) {
 
         event.preventDefault();
         console.log("initialized");
+
         fetch(api_url + '/login', {
             method: 'POST',
             headers: {

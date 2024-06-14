@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    api_url: 'http://127.0.0.1:8080'
+    api_url: 'http://localhost:8080'
 }
 
 const environmentSlice = createSlice({
