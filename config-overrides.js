@@ -22,9 +22,9 @@ module.exports = function override(config, env) {
   config.plugins.push(new NodePolyfillPlugin());
 
   // Adiciona o plugin dotenv-webpack
-  //config.plugins.push(new Dotenv({
-    //systemvars: true
-  //}));
+  config.plugins.push(new Dotenv({
+    systemvars: true
+  }));
 
   return config;
 };
