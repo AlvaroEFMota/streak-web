@@ -31,18 +31,18 @@ const ActivityList = ({activities, handleDelete}) => {
     return (
         <div>
             {activities.map((activity) => (
-                <div className="activity" key={activity.uuid}>
-                    <div>
+                <div className="activity_item" key={activity.uuid}>
+                    <div className="activity_info">
                     <h2>{activity.name}, accumulative: {activity.accumulative} streak: {activity.streak}</h2>
                     <h5>last_update: {activity.last_update} uuid: {activity.uuid}</h5>
                     </div>
-                    <div>
+                    <div className="activity_item_options">
                         <form onSubmit={(e) => {handleSubmitTime(activity.uuid)}} >
-                            <input type="text"
+                            <input className="activity_subitem" type="text"
                                 required value={inputTimes[activity.uuid] || ''}
                                 onChange={(e) => handleChangeInputTime(activity.uuid, e.target.value)}/>
                         </form>
-                        <button className="btn" onClick={() => (handleDelete(activity.uuid))}>Delete</button>
+                        <button className="btn activity_subitem" onClick={() => (handleDelete(activity.uuid))}>Delete</button>
                     </div>
                 </div>
             ))}

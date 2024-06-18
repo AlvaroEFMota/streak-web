@@ -27,9 +27,7 @@ const AddActivity = () => {
 
 	return (
 		<form className="add_activity" onSubmit={handleSubmit}>
-			<label>
-				Add Activity:
-			</label>
+            <label>Add Activity:</label>
             <input type="text"
                 required value={inputActivity}
                 onChange={(e) => setInputActivity(e.target.value)}/>

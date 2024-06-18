@@ -9,6 +9,7 @@ const Navbar = ({onLogout}) => {
             <Link to="/about">About</Link>
             <Link to="/login">Login</Link>
             <button onClick={onLogout}>Logout</button>
+            <input type="button" value="Teste"/>
         </div>
     </nav>
     );

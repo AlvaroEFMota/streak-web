@@ -3,23 +3,12 @@
 /* base styles */
 * {
 	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 	font-family: "Quicksand";
 	color: #333;
 }
 
-.p10 {
-    padding: 10px;
-}
-
-.top_m15{
-    margin-top: 15px;
-}
-.top_m10{
-    margin-top: 10px;
-}
-.top_m5{
-    margin-top: 5px;
-}
 
 .navbar {
 	padding: 20px;
@@ -56,26 +45,46 @@
 
 .homepage {
 	margin-left: 10%;
-	max-width: 700px;
+	max-width: 45%;
 }
 
-.activity {
-	margin-top: 30px;
+.activity_info {
+    width: 80%;
+    margin: 0.5rem;
+}
+
+.activity_item {
+    margin: 0.5rem;
 	border-bottom: 1px solid #e0e0e0;
     display: flex;
 	padding-bottom: 10px;
 }
 
-.add_activity {
-    max-width: 600px;
-	margin-bottom: 40px;
-	margin-top: 40px;
+.activity_subitem {
+    margin:1rem;
 }
 
-.add_activity label{
-    font-size: 25px;
+.activity_item_options {
+    display: flex;
+    margin: 0.5rem;
+}
+
+.add_activity {
+    margin: 40px;
+}
+
+.add_activity label {
+    font-size: 1.7rem;
     font-weight: bold;
-    margin-right: 20px;
+}
+
+.add_activity button {
+    margin: 1rem;
+}
+
+.add_activity input {
+    width: 25%;
+    margin: 1rem;
 }
 
 .btn {
