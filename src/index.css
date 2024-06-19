@@ -37,6 +37,15 @@
 	color: #f1356d;
 }
 
+.logout_btn {
+    all: unset;
+	margin-left: 16px;
+}
+
+.logout_btn:hover {
+	color: #f1356d;
+}
+
 .content {
 	max-width: 600px;
 	margin: auto;
@@ -66,11 +75,12 @@
 
 .activity_item_options {
     display: flex;
+    align-items: center;
     margin: 0.5rem;
 }
 
 .add_activity {
-    margin: 40px;
+    margin: 2rem;
 }
 
 .add_activity label {
@@ -93,6 +103,7 @@
     margin-left: auto;
     background-color: #f06060;
 }
+
 
 .loginContainer {
     position: absolute;

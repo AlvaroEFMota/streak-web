@@ -8,8 +8,7 @@ const Navbar = ({onLogout}) => {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
             <Link to="/login">Login</Link>
-            <button onClick={onLogout}>Logout</button>
-            <input type="button" value="Teste"/>
+            <button className="logout_btn" onClick={onLogout}>Logout</button>
         </div>
     </nav>
     );
