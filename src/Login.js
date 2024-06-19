@@ -50,11 +50,9 @@ function Login({ onLogin}) {
     }
 
     return (
-        <div>
-            <form className="loginContainer" onSubmit={handleSubmit}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '10px' }}>
-                    <h2>Login page</h2>
-                </div>
+        <div className="in_the_middle">
+            <h2>Login page</h2>
+            <form onSubmit={handleSubmit}>
                 <div className="inputContainer">
                     <div>
                         <label htmlFor="email"><h4>Email</h4></label>

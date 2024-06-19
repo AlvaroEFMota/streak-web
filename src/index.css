@@ -9,6 +9,9 @@
 	color: #333;
 }
 
+.clear_btn {
+    all: unset;
+}
 
 .navbar {
 	padding: 20px;
@@ -38,7 +41,6 @@
 }
 
 .logout_btn {
-    all: unset;
 	margin-left: 16px;
 }
 
@@ -104,8 +106,7 @@
     background-color: #f06060;
 }
 
-
-.loginContainer {
+.in_the_middle {
     position: absolute;
     top: 40%;
     left: 50%;

@@ -35,18 +35,18 @@ const Signin = () => {
 
 
     return (
-        <div>
+        <div className="in_the_middle">
+            <h1>Sign in</h1>
             <form onSubmit={handleSubmit}>
-                <h1>Sign in</h1>
                 <div>
                     <label htmlFor="email"><h4>Email</h4></label>
                 </div>
-                <input className={'top_m10'} value={email} onChange={(e) => setEmail(e.target.value)} name="email"/>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} name="email"/>
                 <div>
                     <label htmlFor="password"><h4>password</h4></label>
                 </div>
                 <div>
-                    <input className={'top_m10'} value={password} onChange={(e) => setPassword(e.target.value)} name="password"/>
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} name="password"/>
                 </div>
                 <input type="submit" value="Criar conta"/>
             </form>
